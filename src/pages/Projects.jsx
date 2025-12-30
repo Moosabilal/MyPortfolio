@@ -16,14 +16,14 @@ const Projects = () => {
         },
         {
             title: "Eagleswing — Fashion E-Commerce",
-            desc: "High-performance B2C clothing store featuring Server-Side Rendering (SSR) for SEO. Includes secure Razorpay payments, wallet system, and inventory management. Wait a little bit render takes 50 seconds to deploy free render server",
+            desc: `High-performance B2C clothing store featuring Server-Side Rendering (SSR) for SEO. Includes secure Razorpay payments, wallet system, and inventory management. \n\nWait a little bit after opening - render takes 50 seconds to deploy free render server`,
             tech: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap", "Razorpay"],
             link: "https://ecommerce-project-2ua0.onrender.com",
             github: "https://github.com/Moosabilal/eCommerce"
         },
         {
             title: "User Management System",
-            desc: "A secure admin dashboard featuring JWT authentication, Redux Toolkit for global state management, and full CRUD operations.",
+            desc: "A secure admin dashboard featuring JWT authentication, Redux Toolkit for global state management, and full CRUD operations. \n\nWait a little bit after opening - render takes 50 seconds to deploy free render server",
             tech: ["MERN Stack", "Redux Toolkit", "JWT", "Tailwind CSS"],
             link: "https://react-user-management-pi.vercel.app/login",
             github: "https://github.com/Moosabilal/ReactUserManagement"
@@ -137,7 +137,7 @@ const Projects = () => {
 
                         <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                             <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>{project.title}</h3>
-                            <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', flex: 1 }}>{project.desc}</p>
+                            <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', flex: 1, whiteSpace: 'pre-line' }}>{project.desc}</p>
 
                             {/* Tech Stack Tags */}
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
