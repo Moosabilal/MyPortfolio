@@ -32,8 +32,8 @@ const Projects = () => {
             title: "Portfolio Website",
             desc: "The website you are currently viewing. High-performance, animated, and responsive personal portfolio.",
             tech: ["React", "Vite"],
-            link: "#",
-            github: "#"
+            link: "https://my-portfolio-eight-delta-akilc77lz3.vercel.app/",
+            github: "https://github.com/Moosabilal/MyPortfolio"
         },
         {
             title: "React Todo App",
