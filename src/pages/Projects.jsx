@@ -8,7 +8,7 @@ const Projects = () => {
             title: "QuickMate — Job Service Platform",
             desc: "On-demand service booking platform with real-time chat & video calls. Architected using the Repository Pattern and SOLID principles for scalability.",
             tech: ["MERN Stack", "TypeScript", "Socket.IO", "WebRTC", "AWS EC2", "JWT", "Redux", "Razorpay"],
-            link: "#",
+            link: "https://quickmate.eagleswing.shop/",
             github: {
                 frontend: "https://github.com/Moosabilal/Quickmate-frontend",
                 backend: "https://github.com/Moosabilal/Quickmate-backend"
