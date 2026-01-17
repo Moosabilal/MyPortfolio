@@ -83,13 +83,12 @@ const Projects = () => {
 
     return (
         <div
-            className="section container"
-            style={{ paddingTop: '150px' }}
+            className="section container pt-[150px]"
         >
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+                className="text-5xl mb-4 text-center"
             >
                 My <span className="gradient-text">Projects</span>
             </motion.h1>
@@ -97,13 +96,13 @@ const Projects = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '4rem' }}
+                className="text-center text-text-secondary mb-16"
             >
                 A selection of my recent work.
             </motion.p>
 
             <motion.div
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}
+                className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -114,58 +113,37 @@ const Projects = () => {
                         key={index}
                         variants={cardVariants}
                         whileHover={{ y: -10 }}
-                        style={{
-                            background: 'var(--bg-secondary)',
-                            borderRadius: '15px',
-                            overflow: 'hidden',
-                            border: '1px solid rgba(255,255,255,0.05)',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                        }}
+                        className="bg-bg-secondary rounded-[15px] overflow-hidden border border-white/5 flex flex-col shadow-lg"
                     >
-                        <div style={{
-                            height: '200px',
-                            background: `linear-gradient(45deg, var(--accent-primary), var(--bg-primary))`,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            opacity: 0.8
-                        }}>
-                            <span style={{ fontSize: '3rem', fontWeight: 'bold', opacity: 0.3 }}>{project.title[0]}</span>
+                        <div className="h-[200px] bg-gradient-to-tr from-accent-primary to-bg-primary flex items-center justify-center opacity-80">
+                            <span className="text-5xl font-bold opacity-30">{project.title[0]}</span>
                         </div>
 
-                        <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>{project.title}</h3>
-                            <p style={{ color: 'var(--text-secondary)', marginBottom: '20px', flex: 1, whiteSpace: 'pre-line' }}>{project.desc}</p>
+                        <div className="p-6 flex-1 flex flex-col">
+                            <h3 className="text-2xl mb-2.5">{project.title}</h3>
+                            <p className="text-text-secondary mb-5 flex-1 whitespace-pre-line">{project.desc}</p>
 
                             {/* Tech Stack Tags */}
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+                            <div className="flex flex-wrap gap-2.5 mb-5">
                                 {project.tech.map((t, i) => (
-                                    <span key={i} style={{
-                                        fontSize: '0.8rem',
-                                        background: 'rgba(99, 102, 241, 0.1)',
-                                        color: 'var(--accent-primary)',
-                                        padding: '4px 10px',
-                                        borderRadius: '20px'
-                                    }}>
+                                    <span key={i} className="text-xs bg-accent-primary/10 text-accent-primary px-2.5 py-1 rounded-full">
                                         {t}
                                     </span>
                                 ))}
                             </div>
 
                             {/* Dynamic Buttons Section */}
-                            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: 'auto' }}>
+                            <div className="flex gap-2.5 flex-wrap mt-auto">
 
                                 {/* 1. Handle GitHub Links */}
                                 {typeof project.github === 'string' ? (
-                                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '8px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm flex items-center gap-2">
                                         <FaGithub /> Code
                                     </a>
                                 ) : (
                                     // Loop through the object (e.g., Instagram, Facebook)
                                     Object.entries(project.github).map(([label, url], index) => (
-                                        <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ padding: '8px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm flex items-center gap-2">
                                             <FaGithub /> {label}
                                         </a>
                                     ))
@@ -173,13 +151,13 @@ const Projects = () => {
 
                                 {/* 2. Handle Live Demo Links */}
                                 {typeof project.link === 'string' ? (
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '8px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm flex items-center gap-2 no-underline">
                                         <FaExternalLinkAlt /> Demo
                                     </a>
                                 ) : (
                                     // Loop through the object (e.g., Instagram, Facebook)
                                     Object.entries(project.link).map(([label, url], index) => (
-                                        <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ padding: '8px 16px', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                                        <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm flex items-center gap-2 no-underline">
                                             <FaExternalLinkAlt /> {label}
                                         </a>
                                     ))

@@ -10,29 +10,29 @@ import Skills from './Skills';
 const Home = () => {
     return (
         <div className="home-container">
-            <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
-                <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', zIndex: 1 }}>
-                    <div style={{ maxWidth: '600px' }}>
+            <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
+                <div className="container flex items-center justify-between z-10 relative flex-col-reverse md:flex-row px-5 md:px-0">
+                    <div className="max-w-[600px] flex flex-col items-center md:items-start text-center md:text-left">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <h2 style={{ fontSize: '1.5rem', color: 'var(--accent-secondary)', marginBottom: '10px' }}>Hello, I'm</h2>
-                            <h1 style={{ fontSize: '5rem', fontWeight: 'bold', lineHeight: 1.1, marginBottom: '20px' }}>
+                            <h2 className="text-2xl text-accent-secondary mb-2">Hello, I'm</h2>
+                            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-5">
                                 Moosa.
                             </h1>
-                            <h3 style={{ fontSize: '2rem', color: 'var(--text-secondary)', marginBottom: '30px' }}>
+                            <h3 className="text-3xl text-text-secondary mb-8">
                                 Full Stack <span className="gradient-text">Developer</span>
                             </h3>
-                            <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '40px', maxWidth: '500px' }}>
+                            <p className="text-lg text-text-secondary mb-10 max-w-[500px]">
                                 I build immersive web experiences with modern technologies like React, Node.js, Express and MongoDB.
                                 Turning ideas into reality through code.
                             </p>
                         </motion.div>
 
                         <motion.div
-                            style={{ display: 'flex', gap: '20px' }}
+                            className="flex gap-5"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
@@ -42,14 +42,14 @@ const Home = () => {
                         </motion.div>
 
                         <motion.div
-                            style={{ marginTop: '50px', display: 'flex', gap: '20px', fontSize: '1.5rem' }}
+                            className="mt-12 flex gap-5 text-2xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.6 }}
                         >
-                            <a href="https://github.com/Moosabilal" style={{ color: 'var(--text-secondary)' }}><FaGithub /></a>
-                            <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" style={{ color: 'var(--text-secondary)' }}><FaLinkedin /></a>
-                            <a href="mailto:moosabilal75608@gmail.com" style={{ color: 'var(--text-secondary)' }}><FaEnvelope /></a>
+                            <a href="https://github.com/Moosabilal" className="text-text-secondary hover:text-accent-primary transition-colors"><FaGithub /></a>
+                            <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" className="text-text-secondary hover:text-accent-primary transition-colors"><FaLinkedin /></a>
+                            <a href="mailto:moosabilal75608@gmail.com" className="text-text-secondary hover:text-accent-primary transition-colors"><FaEnvelope /></a>
                         </motion.div>
                     </div>
 
@@ -57,18 +57,7 @@ const Home = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}
-                        style={{
-                            width: '400px',
-                            height: '400px',
-                            background: 'linear-gradient(45deg, var(--accent-primary), var(--accent-secondary))',
-                            borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
-                            filter: 'blur(50px)',
-                            opacity: 0.3,
-                            position: 'absolute',
-                            right: '10%',
-                            zIndex: -1,
-                            animation: 'morph 8s ease-in-out infinite'
-                        }}
+                        className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-gradient-to-tr from-accent-primary to-accent-secondary rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] blur-[50px] opacity-30 absolute right-[10%] -z-10 animate-morph"
                     />
                 </div>
             </section>
@@ -81,17 +70,9 @@ const Home = () => {
                 <Education />
             </section>
 
-            <section id="skills" style={{ paddingBottom: '100px' }}>
+            <section id="skills" className="pb-[100px]">
                 <Skills />
             </section>
-
-            <style>{`
-        @keyframes morph {
-          0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-          50% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-          100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
-      `}</style>
         </div>
     );
 };

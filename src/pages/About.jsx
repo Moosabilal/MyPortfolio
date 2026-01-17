@@ -32,22 +32,21 @@ const About = () => {
 
     return (
         <motion.div
-            className="section container"
+            className="section container pt-20 md:pt-32 lg:pt-[150px]"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            style={{ paddingTop: '150px' }}
         >
             <motion.h1
                 variants={itemVariants}
-                style={{ fontSize: '3rem', marginBottom: '2rem' }}
+                className="text-4xl md:text-5xl lg:text-7xl mb-8"
             >
                 About <span className="gradient-text">Me</span>
             </motion.h1>
 
-            <motion.div variants={itemVariants} style={{ maxWidth: '800px', fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '3rem' }}>
-                <p style={{ marginBottom: '1.5rem' }}>
+            <motion.div variants={itemVariants} className="max-w-[800px] text-xl text-text-secondary mb-12">
+                <p className="mb-6">
                     I am a passionate Full Stack Developer with a knack for building robust and scalable web applications.
                     With a strong foundation in the MERN stack (MongoDB, Express, React, Node.js), I love solving complex problems and creating intuitive user experiences.
                 </p>
@@ -59,14 +58,14 @@ const About = () => {
 
             <motion.h2
                 variants={itemVariants}
-                style={{ fontSize: '2rem', marginBottom: '1.5rem', marginTop: '3rem' }}
+                className="text-3xl mb-6 mt-12"
             >
                 Soft Skills
             </motion.h2>
 
             <motion.div
                 variants={containerVariants}
-                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
             >
                 {[
                     { title: "Adaptability", desc: "Quickly adjusting to new technologies and changing project requirements." },
@@ -77,17 +76,11 @@ const About = () => {
                     <motion.div
                         key={index}
                         variants={cardVariants}
-                        whileHover={{ scale: 1.05, backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--accent-primary)' }}
-                        style={{
-                            padding: '20px',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            borderRadius: '12px',
-                            transition: 'border-color 0.3s ease',
-                            cursor: 'default'
-                        }}
+                        whileHover={{ scale: 1.05 }}
+                        className="p-5 border border-white/10 rounded-xl transition-all duration-300 cursor-default hover:bg-bg-secondary hover:border-accent-primary"
                     >
-                        <h3 style={{ marginBottom: '10px', color: 'var(--accent-primary)' }}>{skill.title}</h3>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{skill.desc}</p>
+                        <h3 className="mb-2.5 text-accent-primary font-bold">{skill.title}</h3>
+                        <p className="text-sm text-text-secondary">{skill.desc}</p>
                     </motion.div>
                 ))}
             </motion.div>

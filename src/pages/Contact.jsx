@@ -19,7 +19,7 @@ const Contact = () => {
             .then((result) => {
                 console.log(result.text);
                 setStatus('success');
-                e.target.reset(); 
+                e.target.reset();
                 setTimeout(() => setStatus(''), 5000);
             }, (error) => {
                 console.log(error.text);
@@ -29,44 +29,43 @@ const Contact = () => {
 
     return (
         <motion.div
-            className="section container"
+            className="section container pt-[150px] flex items-center min-h-[80vh]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ paddingTop: '150px', display: 'flex', alignItems: 'center', minHeight: '80vh' }}
         >
-            <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', gap: '50px' }}>
+            <div className="flex flex-wrap w-full gap-12">
                 <motion.div
-                    style={{ flex: '1 1 400px' }}
+                    className="flex-[1_1_400px]"
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
                 >
-                    <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Let's <span className="gradient-text">Connect</span></h1>
-                    <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem', fontSize: '1.1rem' }}>
+                    <h1 className="text-5xl mb-4">Let's <span className="gradient-text">Connect</span></h1>
+                    <p className="text-text-secondary mb-12 text-lg">
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                     </p>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            <div style={iconBoxStyle}><FaEnvelope /></div>
+                    <div className="flex flex-col gap-5">
+                        <div className="flex items-center gap-4">
+                            <div className="w-[50px] h-[50px] rounded-full bg-accent-primary/10 flex items-center justify-center text-accent-primary text-xl"><FaEnvelope /></div>
                             <div>
-                                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Email</h4>
-                                <a href="mailto:moosabilal75608@gmail.com" style={{ fontSize: '1.1rem', color: 'white', textDecoration: 'none' }}>moosabilal75608@gmail.com</a>
+                                <h4 className="text-text-secondary text-sm">Email</h4>
+                                <a href="mailto:moosabilal75608@gmail.com" className="text-lg text-white no-underline hover:text-accent-primary transition-colors">moosabilal75608@gmail.com</a>
                             </div>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            <div style={iconBoxStyle}><FaPhone /></div>
+                        <div className="flex items-center gap-4">
+                            <div className="w-[50px] h-[50px] rounded-full bg-accent-primary/10 flex items-center justify-center text-accent-primary text-xl"><FaPhone /></div>
                             <div>
-                                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Phone</h4>
-                                <span style={{ fontSize: '1.1rem' }}>+91 7560873137</span>
+                                <h4 className="text-text-secondary text-sm">Phone</h4>
+                                <span className="text-lg">+91 7560873137</span>
                             </div>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            <div style={iconBoxStyle}><FaMapMarkerAlt /></div>
+                        <div className="flex items-center gap-4">
+                            <div className="w-[50px] h-[50px] rounded-full bg-accent-primary/10 flex items-center justify-center text-accent-primary text-xl"><FaMapMarkerAlt /></div>
                             <div>
-                                <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Location</h4>
-                                <span style={{ fontSize: '1.1rem' }}>Remote / Worldwide</span>
+                                <h4 className="text-text-secondary text-sm">Location</h4>
+                                <span className="text-lg">Remote / Worldwide</span>
                             </div>
                         </div>
                     </div>
@@ -75,40 +74,39 @@ const Contact = () => {
                 <motion.form
                     ref={form}
                     onSubmit={sendEmail}
-                    style={{ flex: '1 1 400px', background: 'var(--bg-secondary)', padding: '40px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}
+                    className="flex-[1_1_400px] bg-bg-secondary p-10 rounded-[20px] border border-white/5 shadow-lg"
                     initial={{ x: 30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
                 >
-                    <h3 style={{ marginBottom: '20px' }}>Send me a message</h3>
-                    
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-secondary)' }}>Name</label>
-                        <input type="text" name="user_name" placeholder="John Doe" required style={inputStyle} />
-                    </div>
-                    
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-secondary)' }}>Email</label>
-                        <input type="email" name="user_email" placeholder="john@example.com" required style={inputStyle} />
-                    </div>
-                    
-                    <div style={{ marginBottom: '20px' }}>
-                        <label style={{ display: 'block', marginBottom: '8px', color: 'var(--text-secondary)' }}>Message</label>
-                        <textarea name="message" rows="4" placeholder="Your message..." required style={inputStyle}></textarea>
+                    <h3 className="text-2xl mb-5">Send me a message</h3>
+
+                    <div className="mb-5">
+                        <label className="block mb-2 text-text-secondary">Name</label>
+                        <input type="text" name="user_name" placeholder="John Doe" required className="w-full p-3 bg-bg-primary border border-white/10 rounded-lg text-white text-base outline-none focus:border-accent-primary transition-colors" />
                     </div>
 
-                    <button 
-                        type="submit" 
-                        className="btn btn-primary" 
-                        style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}
+                    <div className="mb-5">
+                        <label className="block mb-2 text-text-secondary">Email</label>
+                        <input type="email" name="user_email" placeholder="john@example.com" required className="w-full p-3 bg-bg-primary border border-white/10 rounded-lg text-white text-base outline-none focus:border-accent-primary transition-colors" />
+                    </div>
+
+                    <div className="mb-5">
+                        <label className="block mb-2 text-text-secondary">Message</label>
+                        <textarea name="message" rows="4" placeholder="Your message..." required className="w-full p-3 bg-bg-primary border border-white/10 rounded-lg text-white text-base outline-none focus:border-accent-primary transition-colors"></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="btn btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={status === 'sending'}
                     >
                         {status === 'sending' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
                         {status === 'success' ? <FaCheck /> : <FaPaperPlane />}
                     </button>
-                    
+
                     {status === 'error' && (
-                        <p style={{ color: '#ff4d4d', marginTop: '10px', textAlign: 'center' }}>
+                        <p className="text-red-500 mt-2.5 text-center">
                             Failed to send. Please try again later.
                         </p>
                     )}
@@ -116,30 +114,6 @@ const Contact = () => {
             </div>
         </motion.div>
     );
-};
-
-const iconBoxStyle = {
-    width: '50px',
-    height: '50px',
-    borderRadius: '50%',
-    background: 'rgba(99, 102, 241, 0.1)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'var(--accent-primary)',
-    fontSize: '1.2rem'
-};
-
-const inputStyle = {
-    width: '100%',
-    padding: '12px',
-    background: 'var(--bg-primary)',
-    border: '1px solid rgba(255,255,255,0.1)',
-    borderRadius: '8px',
-    color: 'white',
-    fontSize: '1rem',
-    outline: 'none',
-    transition: 'border-color 0.3s ease'
 };
 
 export default Contact;

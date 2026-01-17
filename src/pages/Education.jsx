@@ -56,15 +56,14 @@ const Education = () => {
 
     return (
         <div
-            className="section container"
-            style={{ paddingTop: '150px' }}
+            className="section container pt-[150px]"
         >
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+                className="text-5xl mb-4 text-center"
             >
                 My <span className="gradient-text">Education</span>
             </motion.h1>
@@ -73,35 +72,20 @@ const Education = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '4rem' }}
+                className="text-center text-text-secondary mb-16"
             >
                 My academic journey and qualifications.
             </motion.p>
 
-            <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-                <div style={{
-                    position: 'absolute',
-                    left: '20px',
-                    top: '0',
-                    bottom: '0',
-                    width: '2px',
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    zIndex: 0
-                }}></div>
+            <div className="max-w-[800px] mx-auto relative">
+                <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-white/10 z-0"></div>
 
                 <motion.div
                     initial={{ height: 0 }}
                     whileInView={{ height: '100%' }}
                     viewport={{ once: true }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
-                    style={{
-                        position: 'absolute',
-                        left: '20px',
-                        top: '0',
-                        width: '2px',
-                        background: 'var(--accent-primary)',
-                        zIndex: 0
-                    }}
+                    className="absolute left-5 top-0 w-0.5 bg-accent-primary z-0"
                 />
 
                 <motion.div
@@ -114,61 +98,27 @@ const Education = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            style={{
-                                marginBottom: '40px',
-                                position: 'relative',
-                                paddingLeft: '60px'
-                            }}
+                            className="mb-10 relative pl-[60px]"
                         >
                             <motion.div
                                 initial={{ scale: 0 }}
                                 whileInView={{ scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 + (index * 0.3), type: 'spring' }}
-                                style={{
-                                    position: 'absolute',
-                                    left: '0',
-                                    top: '0',
-                                    width: '40px',
-                                    height: '40px',
-                                    background: 'var(--bg-secondary)',
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    border: '2px solid var(--accent-primary)',
-                                    color: 'var(--accent-primary)',
-                                    fontSize: '1.2rem',
-                                    zIndex: 1
-                                }}
+                                className="absolute left-0 top-0 w-10 h-10 bg-bg-secondary rounded-full flex items-center justify-center border-2 border-accent-primary text-accent-primary text-lg z-10"
                             >
                                 {edu.icon}
                             </motion.div>
 
-                            <div style={{
-                                background: 'var(--bg-secondary)',
-                                borderRadius: '15px',
-                                padding: '25px',
-                                border: '1px solid rgba(255, 255, 255, 0.05)',
-                                boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
-                            }}>
-                                <span style={{
-                                    display: 'inline-block',
-                                    padding: '4px 12px',
-                                    borderRadius: '20px',
-                                    background: 'rgba(99, 102, 241, 0.1)',
-                                    color: 'var(--accent-primary)',
-                                    fontSize: '0.8rem',
-                                    marginBottom: '10px',
-                                    fontWeight: '600'
-                                }}>
+                            <div className="bg-bg-secondary rounded-2xl p-6 border border-white/5 shadow-lg">
+                                <span className="inline-block px-3 py-1 rounded-full bg-[rgba(99,102,241,0.1)] text-accent-primary text-xs mb-2.5 font-semibold">
                                     {edu.year}
                                 </span>
-                                <h3 style={{ fontSize: '1.4rem', marginBottom: '5px' }}>{edu.degree}</h3>
-                                <h4 style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', marginBottom: '10px' }}>
+                                <h3 className="text-2xl mb-1.5">{edu.degree}</h3>
+                                <h4 className="text-lg text-text-secondary mb-2.5">
                                     {edu.institution}, {edu.location}
                                 </h4>
-                                <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+                                <p className="text-text-secondary text-base">
                                     {edu.desc}
                                 </p>
                             </div>

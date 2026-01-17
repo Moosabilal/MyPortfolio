@@ -48,14 +48,13 @@ const Skills = () => {
 
     return (
         <div
-            className="section container"
-            style={{ paddingTop: '150px' }}
+            className="section container pt-20 md:pt-32 lg:pt-[150px]"
         >
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                style={{ fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}
+                className="text-4xl md:text-5xl lg:text-5xl mb-4 text-center"
             >
                 Technical <span className="gradient-text">Skills</span>
             </motion.h1>
@@ -64,18 +63,13 @@ const Skills = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                style={{ textAlign: 'center', color: 'var(--text-secondary)', marginBottom: '4rem' }}
+                className="text-center text-text-secondary mb-16"
             >
                 The technologies I use to build amazing things.
             </motion.p>
 
             <motion.div
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                    gap: '30px',
-                    justifyItems: 'center'
-                }}
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 justify-items-center"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -86,24 +80,12 @@ const Skills = () => {
                         key={index}
                         variants={itemVariants}
                         whileHover={{ scale: 1.1, y: -10, transition: { type: "spring", stiffness: 300 } }}
-                        style={{
-                            width: '150px',
-                            height: '150px',
-                            background: 'var(--bg-secondary)',
-                            borderRadius: '20px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                            border: '1px solid rgba(255,255,255,0.05)',
-                            cursor: 'pointer'
-                        }}
+                        className="w-full aspect-square max-w-[150px] bg-bg-secondary rounded-[20px] flex flex-col items-center justify-center shadow-lg border border-white/5 cursor-pointer"
                     >
-                        <div style={{ fontSize: '4rem', color: skill.color, marginBottom: '10px' }}>
+                        <div style={{ color: skill.color }} className="text-6xl mb-2.5">
                             {skill.icon}
                         </div>
-                        <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>{skill.name}</span>
+                        <span className="font-semibold text-text-primary">{skill.name}</span>
                     </motion.div>
                 ))}
             </motion.div>
