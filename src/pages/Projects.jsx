@@ -18,7 +18,7 @@ const Projects = () => {
             title: "Eagleswing — Fashion E-Commerce",
             desc: `High-performance B2C clothing store featuring Server-Side Rendering (SSR) for SEO. Includes secure Razorpay payments, wallet system, and inventory management. \n\nWait a little bit after opening - render takes 50 seconds to deploy free render server`,
             tech: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap", "Razorpay"],
-            link: "https://ecommerce-project-2ua0.onrender.com",
+            link: "https://www.eagleswing.shop/",
             github: "https://github.com/Moosabilal/eCommerce"
         },
         {
