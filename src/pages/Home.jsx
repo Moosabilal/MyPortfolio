@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from 'react-icons/fa';
 
 import About from './About';
 import Education from './Education';
@@ -38,6 +38,15 @@ const Home = () => {
                             transition={{ delay: 0.4 }}
                         >
                             <Link to="/projects" className="btn btn-primary">View My Work</Link>
+                            <a
+                                href="https://raw.githubusercontent.com/Moosabilal/Resume-Moosa-K--A/main/Resume(Moosa-K-A).pdf
+"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-outline flex items-center gap-2"
+                            >
+                                Resume <FaFileDownload />
+                            </a>
                             <Link to="/contact" className="btn btn-outline">Contact Me</Link>
                         </motion.div>
 
