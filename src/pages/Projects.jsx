@@ -123,7 +123,6 @@ const Projects = () => {
                             <h3 className="text-2xl mb-2.5">{project.title}</h3>
                             <p className="text-text-secondary mb-5 flex-1 whitespace-pre-line">{project.desc}</p>
 
-                            {/* Tech Stack Tags */}
                             <div className="flex flex-wrap gap-2.5 mb-5">
                                 {project.tech.map((t, i) => (
                                     <span key={i} className="text-xs bg-accent-primary/10 text-accent-primary px-2.5 py-1 rounded-full">
@@ -132,16 +131,13 @@ const Projects = () => {
                                 ))}
                             </div>
 
-                            {/* Dynamic Buttons Section */}
                             <div className="flex gap-2.5 flex-wrap mt-auto">
 
-                                {/* 1. Handle GitHub Links */}
                                 {typeof project.github === 'string' ? (
                                     <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm flex items-center gap-2">
                                         <FaGithub /> Code
                                     </a>
                                 ) : (
-                                    // Loop through the object (e.g., Instagram, Facebook)
                                     Object.entries(project.github).map(([label, url], index) => (
                                         <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-outline px-4 py-2 text-sm flex items-center gap-2">
                                             <FaGithub /> {label}
@@ -149,13 +145,11 @@ const Projects = () => {
                                     ))
                                 )}
 
-                                {/* 2. Handle Live Demo Links */}
                                 {typeof project.link === 'string' ? (
                                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm flex items-center gap-2 no-underline">
                                         <FaExternalLinkAlt /> Demo
                                     </a>
                                 ) : (
-                                    // Loop through the object (e.g., Instagram, Facebook)
                                     Object.entries(project.link).map(([label, url], index) => (
                                         <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="btn-primary px-4 py-2 text-sm flex items-center gap-2 no-underline">
                                             <FaExternalLinkAlt /> {label}
