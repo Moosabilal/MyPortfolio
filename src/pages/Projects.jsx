@@ -22,11 +22,25 @@ const Projects = () => {
             github: "https://github.com/Moosabilal/eCommerce"
         },
         {
+            title: "SpaceVote — Real-Time Polling Application",
+            desc: "A production-ready polling platform utilizing a Hybrid REST & WebSocket architecture. Implemented strict Clean Architecture, InversifyJS Dependency Injection, and SOLID principles. Features instantaneous chart synchronization, real-time typing indicators, and a secure server-side file proxy to bypass cross-origin browser restrictions.",
+            tech: ["TypeScript", "Node.js", "Express", "Socket.IO", "InversifyJS", "MongoDB", "Cloudinary", "Nginx", "GitHub Actions"],
+            link: "https://polling-app.moosadev.online/",
+            github: "https://github.com/Moosabilal/Polling_App.git"
+        },
+        {
             title: "User Management System",
             desc: "A secure admin dashboard featuring JWT authentication, Redux Toolkit for global state management, and full CRUD operations. \n\nWait a little bit after opening - render takes 50 seconds to deploy free render server",
             tech: ["MERN Stack", "Redux Toolkit", "JWT", "Tailwind CSS"],
             link: "https://react-user-management-pi.vercel.app/login",
             github: "https://github.com/Moosabilal/ReactUserManagement"
+        },
+        {
+            title: "SurveyApp — Enterprise Feedback System",
+            desc: "A highly scalable full-stack survey platform built with strict adherence to Clean Architecture and SOLID principles.",
+            tech: ["MERN Stack", "TypeScript", "Clean Architecture", "InversifyJS", "Zod", "Custom Hooks"],
+            link: "https://survey-app-chi-gilt.vercel.app/",
+            github: "https://github.com/Moosabilal/survey-app"
         },
         {
             title: "Portfolio Website",
