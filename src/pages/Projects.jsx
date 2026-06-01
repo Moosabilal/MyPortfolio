@@ -8,7 +8,7 @@ const Projects = () => {
             title: "QuickMate — Job Service Platform",
             desc: "On-demand service booking platform with real-time chat & video calls. Architected using the Repository Pattern and SOLID principles for scalability.",
             tech: ["MERN Stack", "TypeScript", "Socket.IO", "WebRTC", "AWS EC2", "JWT", "Redux", "Razorpay"],
-            link: "https://quickmate.eagleswing.shop/",
+            link: "https://quickmate.moosadev.online/",
             github: {
                 frontend: "https://github.com/Moosabilal/Quickmate-frontend",
                 backend: "https://github.com/Moosabilal/Quickmate-backend"
@@ -18,7 +18,7 @@ const Projects = () => {
             title: "Eagleswing — Fashion E-Commerce",
             desc: `High-performance B2C clothing store featuring Server-Side Rendering (SSR) for SEO. Includes secure Razorpay payments, wallet system, and inventory management. \n\nWait a little bit after opening - render takes 50 seconds to deploy free render server`,
             tech: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap", "Razorpay"],
-            link: "https://www.eagleswing.shop/",
+            link: "https://www.moosadev.online/",
             github: "https://github.com/Moosabilal/eCommerce"
         },
         {
