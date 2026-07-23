@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload } from 'react-icons/fa
 import About from './About';
 import Education from './Education';
 import Skills from './Skills';
+import Certificates from './Certificates';
 
 const Home = () => {
     return (
@@ -90,6 +91,10 @@ const Home = () => {
 
             <section id="skills" className="pb-20 w-full">
                 <Skills />
+            </section>
+
+            <section id="certificates" className="pb-20 w-full">
+                <Certificates />
             </section>
         </div>
     );
