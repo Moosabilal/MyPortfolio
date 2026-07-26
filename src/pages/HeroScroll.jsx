@@ -199,96 +199,97 @@ const HeroScroll = () => {
                 ========================================================== */}
                 <motion.div 
                     style={{ opacity: opacity1, y: y1, pointerEvents: pointerEvents1 }}
-                    className="absolute inset-0 flex items-center justify-center container mx-auto px-6 z-10"
+                    className="absolute inset-0 flex items-center justify-center lg:justify-start container mx-auto px-3 sm:px-6 z-10"
                 >
-                    <div className="w-full max-w-3xl flex flex-col items-center text-center p-6 md:p-10 rounded-3xl bg-bg-primary/30 backdrop-blur-sm border border-white/5 shadow-2xl">
-                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 border border-accent-primary/40 text-accent-primary font-semibold text-xs md:text-sm tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                    <div className="w-full max-w-[94%] sm:max-w-lg lg:max-w-[480px] xl:max-w-[540px] flex flex-col items-center lg:items-start text-center lg:text-left p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-bg-primary/40 lg:bg-bg-primary/30 backdrop-blur-md lg:backdrop-blur-sm border border-white/10 shadow-2xl lg:ml-6 xl:ml-12">
+                        <span className="px-3 sm:px-4 py-1 rounded-full bg-gradient-to-r from-accent-primary/20 to-accent-secondary/20 border border-accent-primary/40 text-accent-primary font-semibold text-[10px] sm:text-xs tracking-widest uppercase mb-2 sm:mb-4 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
                             Welcome to My Creative Space
                         </span>
                         
-                        <h2 className="text-2xl md:text-3xl text-text-secondary mb-2 font-light">
+                        <h2 className="text-base sm:text-2xl lg:text-3xl text-text-secondary mb-1 sm:mb-2 font-light">
                             Hello, I'm
                         </h2>
                         
-                        <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold leading-tight mb-4 tracking-tight drop-shadow-lg">
+                        <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-2 sm:mb-4 tracking-tight drop-shadow-lg text-white">
                             Moosa<span className="text-accent-primary">.</span>
                         </h1>
                         
-                        <h3 className="text-2xl md:text-4xl font-extrabold text-white mb-6 tracking-wide">
+                        <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-white mb-3 sm:mb-5 tracking-wide">
                             Full Stack <span className="gradient-text">Developer</span>
                         </h3>
                         
-                        <p className="text-base md:text-lg text-text-secondary mb-8 max-w-[600px] leading-relaxed font-normal">
-                            I build immersive digital experiences and robust web architectures with React, Node.js, Express, and MongoDB. Turning complex ideas into reality through elegant code.
+                        <p className="text-xs sm:text-sm lg:text-base text-text-secondary mb-5 sm:mb-8 leading-relaxed font-normal">
+                            I build immersive digital experiences and robust web architectures with React, Node.js, Express, and MongoDB. Turning ideas into reality through clean code.
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-4 mb-8">
-                            <Link to="/projects" className="btn btn-primary px-7 py-3.5 rounded-xl text-base shadow-[0_10px_25px_rgba(99,102,241,0.4)]">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3.5 mb-6 sm:mb-8 w-full">
+                            <Link to="/projects" className="btn btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold shadow-[0_5px_15px_rgba(99,102,241,0.4)] flex-1 sm:flex-initial text-center">
                                 View My Work
                             </Link>
                             <a
                                 href="https://raw.githubusercontent.com/Moosabilal/Resume-Moosa-K--A/main/Resume(Moosa-K-A).pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn btn-outline flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10"
+                                className="btn btn-outline flex items-center justify-center gap-1.5 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 text-xs sm:text-sm font-semibold flex-1 sm:flex-initial"
                             >
                                 Resume <FaFileDownload className="text-accent-secondary" />
                             </a>
-                            <Link to="/contact" className="btn btn-outline px-7 py-3.5 rounded-xl border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10">
+                            <Link to="/contact" className="btn btn-outline px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 text-xs sm:text-sm font-semibold w-full sm:w-auto text-center">
                                 Contact Me
                             </Link>
                         </div>
 
-                        <div className="flex gap-8 text-2xl text-text-secondary">
-                            <a href="https://github.com/Moosabilal" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1 scale-110"><FaGithub /></a>
-                            <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1 scale-110"><FaLinkedin /></a>
-                            <a href="mailto:moosabilal75608@gmail.com" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1 scale-110"><FaEnvelope /></a>
+                        <div className="flex gap-6 sm:gap-8 text-xl sm:text-2xl text-text-secondary">
+                            <a href="https://github.com/Moosabilal" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaGithub /></a>
+                            <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaLinkedin /></a>
+                            <a href="mailto:moosabilal75608@gmail.com" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaEnvelope /></a>
                         </div>
                     </div>
                 </motion.div>
 
                 {/* =========================================================
                     CHAPTER 2: HIGH-PERFORMANCE WEB ARCHITECTURE & FEATURES
+                    (Aligned far-left on desktop to NEVER hide the face)
                 ========================================================== */}
                 <motion.div 
                     style={{ opacity: opacity2, y: y2, pointerEvents: pointerEvents2 }}
-                    className="absolute inset-0 flex items-center justify-start container mx-auto px-6 z-10"
+                    className="absolute inset-0 flex items-center justify-center lg:justify-start container mx-auto px-3 sm:px-6 z-10"
                 >
-                    <div className="w-full max-w-2xl p-8 md:p-12 rounded-3xl bg-bg-secondary/75 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] text-left relative overflow-hidden group">
-                        <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-accent-primary to-accent-secondary" />
+                    <div className="w-full max-w-[94%] sm:max-w-md lg:max-w-[440px] xl:max-w-[480px] p-4 sm:p-8 lg:p-9 rounded-2xl sm:rounded-3xl bg-bg-secondary/85 sm:bg-bg-secondary/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] text-left relative overflow-hidden lg:ml-6 xl:ml-12">
+                        <div className="absolute top-0 left-0 w-1.5 sm:w-2 h-full bg-gradient-to-b from-accent-primary to-accent-secondary" />
                         
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/20 text-accent-primary font-semibold text-xs tracking-wider uppercase mb-6">
+                        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-accent-primary/20 text-accent-primary font-semibold text-[9px] sm:text-xs tracking-wider uppercase mb-2 sm:mb-5">
                             <FaBolt className="animate-bounce" /> Next-Gen Architecture
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                        <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 text-white leading-tight">
                             Engineered for <span className="gradient-text">Speed & Scale</span>
                         </h2>
 
-                        <p className="text-text-secondary text-base md:text-lg mb-8 leading-relaxed">
-                            Every digital product is architected with modern cloud ecosystem best practices, ensuring instant responsiveness, seamless view transitions, and zero-latency interactions.
+                        <p className="text-text-secondary text-xs sm:text-sm lg:text-sm mb-4 sm:mb-6 leading-relaxed hidden sm:block">
+                            Architected with modern cloud ecosystems, ensuring zero-latency transitions and instant responsiveness.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="flex items-start gap-3 p-4 rounded-xl bg-bg-primary/60 border border-white/5">
-                                <FaRocket className="text-accent-primary text-xl mt-1 shrink-0" />
+                        <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-3">
+                            <div className="flex items-center sm:items-start gap-2.5 sm:gap-3 p-2 sm:p-3.5 rounded-xl bg-bg-primary/70 border border-white/5">
+                                <FaRocket className="text-accent-primary text-sm sm:text-lg shrink-0" />
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm">Blazing Performance</h4>
-                                    <p className="text-text-secondary text-xs mt-1">Optimized bundle sizing, SSR & instant micro-interactions.</p>
+                                    <h4 className="text-white font-semibold text-xs sm:text-sm leading-tight">Blazing Performance</h4>
+                                    <p className="text-text-secondary text-[10px] sm:text-xs mt-0.5 hidden sm:block">Optimized bundle sizing & micro-interactions.</p>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-3 p-4 rounded-xl bg-bg-primary/60 border border-white/5">
-                                <FaShieldAlt className="text-accent-secondary text-xl mt-1 shrink-0" />
+                            <div className="flex items-center sm:items-start gap-2.5 sm:gap-3 p-2 sm:p-3.5 rounded-xl bg-bg-primary/70 border border-white/5">
+                                <FaShieldAlt className="text-accent-secondary text-sm sm:text-lg shrink-0" />
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm">Bulletproof Security</h4>
-                                    <p className="text-text-secondary text-xs mt-1">Modern authentication, CORS, and resilient validation layers.</p>
+                                    <h4 className="text-white font-semibold text-xs sm:text-sm leading-tight">Bulletproof Security</h4>
+                                    <p className="text-text-secondary text-[10px] sm:text-xs mt-0.5 hidden sm:block">Resilient validation & authentication layers.</p>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-3 p-4 rounded-xl bg-bg-primary/60 border border-white/5 sm:col-span-2">
-                                <FaLayerGroup className="text-indigo-400 text-xl mt-1 shrink-0" />
+                            <div className="flex items-center sm:items-start gap-2.5 sm:gap-3 p-2 sm:p-3.5 rounded-xl bg-bg-primary/70 border border-white/5 sm:col-span-2">
+                                <FaLayerGroup className="text-indigo-400 text-sm sm:text-lg shrink-0" />
                                 <div>
-                                    <h4 className="text-white font-semibold text-sm">Responsive Design Mastery</h4>
-                                    <p className="text-text-secondary text-xs mt-1">Fluid typography and adaptive interfaces tailored for every screen size and orientation.</p>
+                                    <h4 className="text-white font-semibold text-xs sm:text-sm leading-tight">Responsive Mastery</h4>
+                                    <p className="text-text-secondary text-[10px] sm:text-xs mt-0.5 hidden sm:block">Adaptive interfaces tailored for all display resolutions.</p>
                                 </div>
                             </div>
                         </div>
@@ -297,38 +298,39 @@ const HeroScroll = () => {
 
                 {/* =========================================================
                     CHAPTER 3: FULL STACK POWERHOUSE & SKILLS
+                    (Aligned far-right on desktop to NEVER hide the face)
                 ========================================================== */}
                 <motion.div 
                     style={{ opacity: opacity3, y: y3, pointerEvents: pointerEvents3 }}
-                    className="absolute inset-0 flex items-center justify-end container mx-auto px-6 z-10"
+                    className="absolute inset-0 flex items-center justify-center lg:justify-end container mx-auto px-3 sm:px-6 z-10"
                 >
-                    <div className="w-full max-w-2xl p-8 md:p-12 rounded-3xl bg-bg-secondary/75 backdrop-blur-xl border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] text-left relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-accent-secondary to-accent-primary" />
+                    <div className="w-full max-w-[94%] sm:max-w-md lg:max-w-[440px] xl:max-w-[480px] p-4 sm:p-8 lg:p-9 rounded-2xl sm:rounded-3xl bg-bg-secondary/85 sm:bg-bg-secondary/80 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] text-left relative overflow-hidden lg:mr-6 xl:mr-12">
+                        <div className="absolute top-0 right-0 w-1.5 sm:w-2 h-full bg-gradient-to-b from-accent-secondary to-accent-primary" />
                         
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-secondary/20 text-accent-secondary font-semibold text-xs tracking-wider uppercase mb-6">
+                        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-accent-secondary/20 text-accent-secondary font-semibold text-[9px] sm:text-xs tracking-wider uppercase mb-2 sm:mb-5">
                             <FaLaptopCode /> Technical Capabilities
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                        <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-4 text-white leading-tight">
                             Full-Stack <span className="gradient-text">Powerhouse</span>
                         </h2>
 
-                        <p className="text-text-secondary text-base md:text-lg mb-8 leading-relaxed">
-                            Bridging sleek frontend interactive design with high-concurrency backend infrastructures. Experienced in designing RESTful APIs and real-time database schemas.
+                        <p className="text-text-secondary text-xs sm:text-sm lg:text-sm mb-4 sm:mb-6 leading-relaxed hidden sm:block">
+                            Bridging sleek frontend interactivity with resilient backend architectures and real-time database schemas.
                         </p>
 
-                        <div className="flex flex-wrap gap-3">
+                        <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 sm:gap-2.5">
                             {[
                                 { name: 'React & Next.js', icon: <FaCode className="text-cyan-400" /> },
                                 { name: 'Node.js & Express', icon: <FaServer className="text-green-500" /> },
                                 { name: 'MongoDB & NoSQL', icon: <FaDatabase className="text-green-400" /> },
-                                { name: 'RESTful & WebSockets', icon: <FaBolt className="text-yellow-400" /> },
-                                { name: 'Vanilla CSS & Tailwind', icon: <FaLayerGroup className="text-purple-400" /> },
-                                { name: 'Git & Cloud CI/CD', icon: <FaRocket className="text-pink-400" /> },
+                                { name: 'REST & WebSockets', icon: <FaBolt className="text-yellow-400" /> },
+                                { name: 'Tailwind CSS', icon: <FaLayerGroup className="text-purple-400" /> },
+                                { name: 'Git & CI/CD', icon: <FaRocket className="text-pink-400" /> },
                             ].map((skill, idx) => (
-                                <div key={idx} className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-bg-primary/80 border border-white/10 shadow-md text-white font-medium text-sm hover:border-accent-primary/50 transition-colors">
-                                    {skill.icon}
-                                    <span>{skill.name}</span>
+                                <div key={idx} className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl bg-bg-primary/80 border border-white/10 shadow-sm text-white font-medium text-[11px] sm:text-xs hover:border-accent-primary/50 transition-colors truncate">
+                                    <span className="shrink-0">{skill.icon}</span>
+                                    <span className="truncate">{skill.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -337,32 +339,33 @@ const HeroScroll = () => {
 
                 {/* =========================================================
                     CHAPTER 4: FINAL INVITATION / TRANSITION
+                    (Aligned far-left on desktop to keep central channel open)
                 ========================================================== */}
                 <motion.div 
                     style={{ opacity: opacity4, y: y4, pointerEvents: pointerEvents4 }}
-                    className="absolute inset-0 flex items-center justify-center container mx-auto px-6 z-10"
+                    className="absolute inset-0 flex items-center justify-center lg:justify-start container mx-auto px-3 sm:px-6 z-10"
                 >
-                    <div className="w-full max-w-3xl text-center p-8 md:p-14 rounded-3xl bg-bg-primary/80 backdrop-blur-2xl border border-white/15 shadow-2xl">
-                        <span className="text-xs uppercase font-bold tracking-widest text-text-secondary mb-3 block">
+                    <div className="w-full max-w-[94%] sm:max-w-md lg:max-w-[460px] xl:max-w-[500px] text-center lg:text-left p-5 sm:p-9 lg:p-10 rounded-2xl sm:rounded-3xl bg-bg-primary/85 lg:bg-bg-primary/75 backdrop-blur-2xl border border-white/15 shadow-2xl lg:ml-6 xl:ml-12">
+                        <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-text-secondary mb-2 sm:mb-3 block">
                             Ready to Innovate
                         </span>
                         
-                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                        <h2 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white mb-3 sm:mb-5 leading-tight">
                             Crafted with <span className="gradient-text">Precision & Excellence</span>
                         </h2>
                         
-                        <p className="text-text-secondary text-base md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-                            Explore my portfolio below to discover deep dives into my featured projects, educational achievements, certifications, and technical mastery.
+                        <p className="text-text-secondary text-xs sm:text-sm lg:text-base max-w-xl mx-auto lg:mx-0 mb-6 sm:mb-8 leading-relaxed">
+                            Explore my interactive portfolio below to discover featured projects, educational achievements, certifications, and expertise.
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-5">
+                        <div className="flex flex-wrap justify-center lg:justify-start">
                             <a 
                                 href="#about" 
                                 onClick={(e) => {
                                     e.preventDefault();
                                     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                                 }}
-                                className="btn btn-primary px-8 py-4 text-lg rounded-2xl shadow-[0_0_30px_rgba(236,72,153,0.4)] cursor-pointer inline-flex items-center gap-3"
+                                className="btn btn-primary px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-base rounded-xl sm:rounded-2xl shadow-[0_0_25px_rgba(236,72,153,0.4)] cursor-pointer inline-flex items-center justify-center gap-2.5 w-full sm:w-auto"
                             >
                                 Explore My Journey <FaRocket className="animate-bounce" />
                             </a>
@@ -371,15 +374,15 @@ const HeroScroll = () => {
                 </motion.div>
 
                 {/* Persistent Animated Scroll Bar Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none opacity-70">
-                    <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary animate-pulse">
-                        Scroll Down to Experience
+                <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 sm:gap-2 pointer-events-none opacity-75">
+                    <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-[0.2em] text-text-secondary animate-pulse">
+                        Scroll Down
                     </span>
-                    <div className="w-5 h-9 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
+                    <div className="w-4 sm:w-5 h-7 sm:h-9 rounded-full border sm:border-2 border-white/30 flex items-start justify-center p-1">
                         <motion.div 
-                            animate={{ y: [0, 12, 0] }} 
+                            animate={{ y: [0, 8, 0] }} 
                             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }} 
-                            className="w-1.5 h-1.5 rounded-full bg-accent-primary shadow-[0_0_8px_var(--accent-primary)]" 
+                            className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-accent-primary shadow-[0_0_8px_var(--accent-primary)]" 
                         />
                     </div>
                 </div>
