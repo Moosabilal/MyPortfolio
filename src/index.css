@@ -41,7 +41,7 @@
   }
 
   body {
-    @apply bg-bg-primary text-text-primary font-main overflow-x-hidden antialiased leading-relaxed;
+    @apply bg-bg-primary text-text-primary font-main overflow-x-clip antialiased leading-relaxed;
   }
 
   #root {

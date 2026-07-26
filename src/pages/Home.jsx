@@ -7,7 +7,7 @@ import HeroScroll from './HeroScroll';
 
 const Home = () => {
     return (
-        <div className="home-container w-full overflow-x-hidden">
+        <div className="home-container w-full overflow-x-clip">
             <HeroScroll />
 
             <section id="about" className="w-full">

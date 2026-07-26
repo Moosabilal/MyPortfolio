@@ -92,6 +92,8 @@ const HeroScroll = () => {
                         if (index === 1) {
                             drawFrame(1);
                             setIsLoading(false);
+                        } else if (Math.abs(index - currentFrameRef.current) <= 5) {
+                            drawFrame(currentFrameRef.current);
                         }
                     }
                     resolve(img);
