@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaBolt, FaLayerGroup, FaCode, FaServer, FaDatabase, FaShieldAlt, FaRocket, FaLaptopCode } from 'react-icons/fa';
 
@@ -73,7 +73,19 @@ const HeroScroll = () => {
         ctx.restore();
     };
 
-    // Priority Multi-Stage Skeleton Preloading Engine
+    // Lock document scrolling while cinematic preloader is active so user begins at Frame #1
+    useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isLoading]);
+
+    // Full 100% In-Memory RAM Loading Engine for Zero-Lag 60 FPS Scroll
     useEffect(() => {
         let isCancelled = false;
         let loadedCount = 0;
@@ -89,15 +101,19 @@ const HeroScroll = () => {
                     if (!isCancelled) {
                         imagesRef.current.set(index, img);
                         loadedCount++;
-                        setLoadProgress(Math.round((loadedCount / totalFrames) * 100));
+                        const progress = Math.round((loadedCount / totalFrames) * 100);
+                        setLoadProgress(progress);
                         
-                        // Immediately reveal initial cover frame
                         if (index === 1) {
                             drawFrame(1);
-                            setIsLoading(false);
                         }
-                        // Continuously refine canvas accuracy as intermediate background frames arrive
-                        drawFrame(currentFrameRef.current);
+                        
+                        // Keep cinematic preloader up until ALL 230 frames sit directly inside memory!
+                        if (loadedCount >= totalFrames) {
+                            setTimeout(() => {
+                                if (!isCancelled) setIsLoading(false);
+                            }, 450); // Brief celebration at 100% before cinematic curtain opening
+                        }
                     }
                     resolve(img);
                 };
@@ -106,45 +122,34 @@ const HeroScroll = () => {
                     if (!isCancelled) {
                         loadedCount++;
                         setLoadProgress(Math.round((loadedCount / totalFrames) * 100));
+                        if (loadedCount >= totalFrames) {
+                            setIsLoading(false);
+                        }
                     }
                     resolve(null);
                 };
             });
         };
 
-        const runPriorityPreload = async () => {
-            // Stage 0: Load boundary frames immediately for zero-lag hero cover
-            await Promise.all([loadFrame(1), loadFrame(totalFrames)]);
+        const runFullMemoryPreload = async () => {
+            // Step 0: Load initial cover frame immediately
+            await loadFrame(1);
             if (isCancelled) return;
             
-            // Stage 1: Coarse Anchor Pass (Every 12th frame) - Instantly covers entire scroll depth so visitors scrolling immediately experience zero freezes or blank spots!
-            const stage1 = [];
-            for (let i = 12; i < totalFrames; i += 12) {
-                if (!imagesRef.current.has(i)) stage1.push(loadFrame(i));
+            // Step 1: Load remaining frames in high-speed concurrent batches of 16 for maximum download speed
+            const remaining = [];
+            for (let i = 2; i <= totalFrames; i++) {
+                if (!imagesRef.current.has(i)) remaining.push(i);
             }
-            await Promise.all(stage1);
-            if (isCancelled) return;
-
-            // Stage 2: Medium Detail Pass (Every 4th frame) - Upgrades overall animation fluidity across the full page height
-            const stage2 = [];
-            for (let i = 4; i < totalFrames; i += 4) {
-                if (!imagesRef.current.has(i)) stage2.push(loadFrame(i));
-            }
-            await Promise.all(stage2);
-            if (isCancelled) return;
-
-            // Stage 3: Full 60 FPS Polish Pass - Fills in all remaining intermediate frames in high-speed concurrent batches
-            const stage3 = [];
-            for (let i = 2; i < totalFrames; i++) {
-                if (!imagesRef.current.has(i)) stage3.push(loadFrame(i));
-            }
-            for (let i = 0; i < stage3.length; i += 8) {
+            
+            for (let i = 0; i < remaining.length; i += 16) {
                 if (isCancelled) break;
-                await Promise.all(stage3.slice(i, i + 8));
+                const batch = remaining.slice(i, i + 16).map(idx => loadFrame(idx));
+                await Promise.all(batch);
             }
         };
 
-        runPriorityPreload();
+        runFullMemoryPreload();
 
         const handleResize = () => {
             drawFrame(currentFrameRef.current);
@@ -206,13 +211,91 @@ const HeroScroll = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-bg-primary/60 via-bg-primary/20 to-bg-primary/90 pointer-events-none" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,var(--bg-primary)_100%)] opacity-70 pointer-events-none" />
 
-                {/* Loading Banner for initial background cache */}
-                {isLoading && (
-                    <div className="absolute top-24 right-6 z-50 bg-bg-secondary/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full text-xs text-text-secondary flex items-center gap-2 animate-pulse">
-                        <div className="w-2 h-2 rounded-full bg-accent-primary animate-ping" />
-                        Initializing 3D Visual Engine... {loadProgress}%
-                    </div>
-                )}
+                {/* Premium 3D Cinematic Gyroscope Preloader Overlay */}
+                <AnimatePresence>
+                    {isLoading && (
+                        <motion.div 
+                            key="cinematic-loader"
+                            initial={{ opacity: 1 }}
+                            exit={{ opacity: 0, scale: 1.05, filter: "blur(12px)" }}
+                            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+                            className="fixed inset-0 z-[999] bg-[#030307]/95 backdrop-blur-2xl flex flex-col items-center justify-center p-6 text-center select-none"
+                        >
+                            {/* Ambient Cyberpunk Glow Gradients */}
+                            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-accent-primary/20 blur-3xl pointer-events-none animate-pulse" />
+                            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-accent-secondary/15 blur-3xl pointer-events-none translate-x-12 translate-y-12" />
+
+                            {/* 3D Gyroscope Assembly */}
+                            <div className="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-8 perspective-[1000px]">
+                                {/* Outer Orbital Rotating Ring */}
+                                <motion.div 
+                                    animate={{ rotateX: [0, 360], rotateY: [0, 180], rotateZ: [0, 360] }}
+                                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-0 rounded-full border-2 border-dashed border-accent-primary/50 shadow-[0_0_25px_rgba(99,102,241,0.4)]"
+                                    style={{ transformStyle: "preserve-3d" }}
+                                />
+                                
+                                {/* Middle Orbital Ring */}
+                                <motion.div 
+                                    animate={{ rotateX: [360, 0], rotateY: [0, 360], rotateZ: [360, 0] }}
+                                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-4 sm:inset-6 rounded-full border border-accent-secondary/70 shadow-[0_0_20px_rgba(236,72,153,0.4)]"
+                                    style={{ transformStyle: "preserve-3d" }}
+                                />
+
+                                {/* Inner High-Speed Pulse Ring */}
+                                <motion.div 
+                                    animate={{ rotate: 360, scale: [0.95, 1.05, 0.95] }}
+                                    transition={{ rotate: { duration: 3.5, repeat: Infinity, ease: "linear" }, scale: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+                                    className="absolute inset-10 sm:inset-12 rounded-full border-2 border-t-accent-primary border-r-transparent border-b-accent-secondary border-l-transparent"
+                                />
+
+                                {/* Center Digital Percentage Core */}
+                                <div className="relative z-10 flex flex-col items-center justify-center bg-bg-primary/80 backdrop-blur-md w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 shadow-[inner_0_0_15px_rgba(255,255,255,0.05)]">
+                                    <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-wider font-mono">
+                                        {loadProgress}%
+                                    </span>
+                                    <span className="text-[9px] uppercase tracking-widest text-accent-primary font-semibold mt-0.5 animate-pulse">
+                                        {loadProgress === 100 ? 'READY' : 'LOADING'}
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Dynamic Title & Readouts */}
+                            <motion.h3 
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-lg sm:text-2xl font-bold tracking-wide text-white mb-3 drop-shadow-md"
+                            >
+                                Entering <span className="gradient-text">Interactive 3D Experience</span>
+                            </motion.h3>
+
+                            <p className="text-xs sm:text-sm text-text-secondary font-mono flex items-center justify-center gap-2.5 max-w-sm sm:max-w-md min-h-[24px]">
+                                <span className="w-2 h-2 rounded-full bg-accent-primary animate-ping inline-block flex-shrink-0" />
+                                <span>
+                                    {loadProgress < 30 && "INITIALIZING 3D GRAPHICS ENGINE..."}
+                                    {loadProgress >= 30 && loadProgress < 65 && "BUFFERING HIGH-DEF SCROLL ANIMATIONS..."}
+                                    {loadProgress >= 65 && loadProgress < 95 && "OPTIMIZING IN-MEMORY GPU SHADERS..."}
+                                    {loadProgress >= 95 && loadProgress < 100 && "FINALIZING 60 FPS LIQUID EXPERIENCE..."}
+                                    {loadProgress === 100 && "✨ EXPERIENCE READY. UNVEILING... ✨"}
+                                </span>
+                            </p>
+
+                            {/* Precision Neon Laser Progress Bar */}
+                            <div className="w-64 sm:w-80 h-1.5 bg-white/10 rounded-full mt-6 overflow-hidden border border-white/5 p-[1px]">
+                                <motion.div 
+                                    className="h-full bg-gradient-to-r from-accent-primary via-indigo-400 to-accent-secondary rounded-full shadow-[0_0_15px_rgba(99,102,241,0.9)]"
+                                    style={{ width: `${loadProgress}%` }}
+                                    transition={{ duration: 0.15 }}
+                                />
+                            </div>
+
+                            <p className="text-[10px] text-text-secondary/50 mt-4 uppercase tracking-widest">
+                                Please wait while all frames lock into RAM for zero-latency scrolling
+                            </p>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
                 {/* =========================================================
                     CHAPTER 1: MAIN GREETING & HERO PROFILE
