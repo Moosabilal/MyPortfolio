@@ -73,12 +73,13 @@ const HeroScroll = () => {
         ctx.restore();
     };
 
-    // Preload image frames with concurrency control
+    // Priority Multi-Stage Skeleton Preloading Engine
     useEffect(() => {
         let isCancelled = false;
         let loadedCount = 0;
 
         const loadFrame = (index) => {
+            if (imagesRef.current.has(index)) return Promise.resolve(imagesRef.current.get(index));
             return new Promise((resolve) => {
                 const img = new Image();
                 const paddedIndex = String(index).padStart(3, '0');
@@ -89,12 +90,14 @@ const HeroScroll = () => {
                         imagesRef.current.set(index, img);
                         loadedCount++;
                         setLoadProgress(Math.round((loadedCount / totalFrames) * 100));
+                        
+                        // Immediately reveal initial cover frame
                         if (index === 1) {
                             drawFrame(1);
                             setIsLoading(false);
-                        } else if (Math.abs(index - currentFrameRef.current) <= 5) {
-                            drawFrame(currentFrameRef.current);
                         }
+                        // Continuously refine canvas accuracy as intermediate background frames arrive
+                        drawFrame(currentFrameRef.current);
                     }
                     resolve(img);
                 };
@@ -109,22 +112,39 @@ const HeroScroll = () => {
             });
         };
 
-        const runPreload = async () => {
-            // Load initial frame immediately for zero-lag render
-            await loadFrame(1);
+        const runPriorityPreload = async () => {
+            // Stage 0: Load boundary frames immediately for zero-lag hero cover
+            await Promise.all([loadFrame(1), loadFrame(totalFrames)]);
+            if (isCancelled) return;
             
-            // Load remaining frames in batches of 6 for high speed & low overhead
-            for (let i = 2; i <= totalFrames; i += 6) {
+            // Stage 1: Coarse Anchor Pass (Every 12th frame) - Instantly covers entire scroll depth so visitors scrolling immediately experience zero freezes or blank spots!
+            const stage1 = [];
+            for (let i = 12; i < totalFrames; i += 12) {
+                if (!imagesRef.current.has(i)) stage1.push(loadFrame(i));
+            }
+            await Promise.all(stage1);
+            if (isCancelled) return;
+
+            // Stage 2: Medium Detail Pass (Every 4th frame) - Upgrades overall animation fluidity across the full page height
+            const stage2 = [];
+            for (let i = 4; i < totalFrames; i += 4) {
+                if (!imagesRef.current.has(i)) stage2.push(loadFrame(i));
+            }
+            await Promise.all(stage2);
+            if (isCancelled) return;
+
+            // Stage 3: Full 60 FPS Polish Pass - Fills in all remaining intermediate frames in high-speed concurrent batches
+            const stage3 = [];
+            for (let i = 2; i < totalFrames; i++) {
+                if (!imagesRef.current.has(i)) stage3.push(loadFrame(i));
+            }
+            for (let i = 0; i < stage3.length; i += 8) {
                 if (isCancelled) break;
-                const batch = [];
-                for (let j = 0; j < 6 && (i + j) <= totalFrames; j++) {
-                    batch.push(loadFrame(i + j));
-                }
-                await Promise.all(batch);
+                await Promise.all(stage3.slice(i, i + 8));
             }
         };
 
-        runPreload();
+        runPriorityPreload();
 
         const handleResize = () => {
             drawFrame(currentFrameRef.current);
