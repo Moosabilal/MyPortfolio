@@ -9,10 +9,8 @@ const Certificates = () => {
     const [visibleCount, setVisibleCount] = useState(12);
 
     const formatTitle = (rawName) => {
-        // Strip leading numbers used for sorting (e.g., "1_", "12_")
-        let clean = rawName.replace(/^\d+_+/, "");
-        // Strip file extension
-        clean = clean.replace(/\.[^/.]+$/, "");
+        // Strip leading numbers used for sorting (e.g., "1_", "12_", "2.1_")
+        let clean = rawName.replace(/^[\d\.]+_+/, "");
         // Strip category keyword suffixes like _edu, _art, _sport, _intern
         clean = clean.replace(/_(edu|art|sport|intern|experience|others?)$/i, "");
         // Replace underscores and hyphens with spaces and trim
@@ -35,18 +33,18 @@ const Certificates = () => {
             const pdfPath = path.replace(/\.[^/.]+$/, '.pdf');
             const pdfSrc = importPdfs[pdfPath]?.default || null;
             
-            // Auto-categorize based on filename keywords
+            // Auto-categorize based on strict filename suffixes to prevent false positives (like 'participation' triggering 'arts')
             let category = 'others';
-            if (nameLower.includes('sport')) category = 'sports';
-            else if (nameLower.includes('art')) category = 'arts';
-            else if (nameLower.includes('intern') || nameLower.includes('experience')) category = 'internships';
-            else if (nameLower.includes('edu') || nameLower.includes('degree') || nameLower.includes('semester') || nameLower.includes('school')) category = 'education';
+            if (nameLower.includes('_sport')) category = 'sports';
+            else if (nameLower.includes('_art')) category = 'arts';
+            else if (nameLower.includes('_intern') || nameLower.includes('_experience')) category = 'internships';
+            else if (nameLower.includes('_edu') || nameLower.includes('degree') || nameLower.includes('semester') || nameLower.includes('school')) category = 'education';
 
-            // Extract sorting number prefix if present (e.g. "1_Certificate_name")
+            // Extract sorting number prefix if present, including decimals (e.g. "2.1_Certificate_name")
             let sortOrder = 999;
-            const match = baseName.match(/^(\d+)_/);
+            const match = baseName.match(/^([\d\.]+)_/);
             if (match) {
-                sortOrder = parseInt(match[1], 10);
+                sortOrder = parseFloat(match[1]);
             }
 
             return {
