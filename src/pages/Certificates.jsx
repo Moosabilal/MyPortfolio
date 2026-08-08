@@ -9,8 +9,10 @@ const Certificates = () => {
     const [visibleCount, setVisibleCount] = useState(12);
 
     const formatTitle = (rawName) => {
+        // Strip leading numbers used for sorting (e.g., "1_", "12_")
+        let clean = rawName.replace(/^\d+_+/, "");
         // Strip file extension
-        let clean = rawName.replace(/\.[^/.]+$/, "");
+        clean = clean.replace(/\.[^/.]+$/, "");
         // Strip category keyword suffixes like _edu, _art, _sport, _intern
         clean = clean.replace(/_(edu|art|sport|intern|experience|others?)$/i, "");
         // Replace underscores and hyphens with spaces and trim
@@ -40,25 +42,36 @@ const Certificates = () => {
             else if (nameLower.includes('intern') || nameLower.includes('experience')) category = 'internships';
             else if (nameLower.includes('edu') || nameLower.includes('degree') || nameLower.includes('semester') || nameLower.includes('school')) category = 'education';
 
+            // Extract sorting number prefix if present (e.g. "1_Certificate_name")
+            let sortOrder = 999;
+            const match = baseName.match(/^(\d+)_/);
+            if (match) {
+                sortOrder = parseInt(match[1], 10);
+            }
+
             return {
                 id: fileName,
                 src: importImages[path].default,
                 pdfSrc,
                 rawName: baseName,
                 name: formatTitle(baseName),
-                category
+                category,
+                sortOrder
             };
         });
+        
+        // Sort certificates by custom sortOrder (lowest first)
+        certs.sort((a, b) => a.sortOrder - b.sortOrder);
         
         setCertificates(certs);
     }, []);
 
     const tabs = [
         { id: 'all', label: 'All' },
-        { id: 'sports', label: 'Sports' },
-        { id: 'arts', label: 'Arts' },
         { id: 'internships', label: 'Internships' },
         { id: 'education', label: 'Education' },
+        { id: 'arts', label: 'Arts' },
+        { id: 'sports', label: 'Sports' },
         { id: 'others', label: 'Others' }
     ];
 
