@@ -4,6 +4,8 @@ import Education from './Education';
 import Skills from './Skills';
 import Certificates from './Certificates';
 import HeroScroll from './HeroScroll';
+import Projects from './Projects';
+import Contact from './Contact';
 
 const Home = () => {
     return (
@@ -24,6 +26,14 @@ const Home = () => {
 
             <section id="certificates" className="pb-20 w-full">
                 <Certificates />
+            </section>
+
+            <section id="projects" className="pb-20 w-full">
+                <Projects />
+            </section>
+
+            <section id="contact" className="pb-20 w-full">
+                <Contact />
             </section>
         </div>
     );

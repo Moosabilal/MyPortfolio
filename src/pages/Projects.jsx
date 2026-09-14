@@ -97,7 +97,7 @@ const Projects = () => {
 
     return (
         <div
-            className="section container pt-[150px]"
+            className="section container pt-20"
         >
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}

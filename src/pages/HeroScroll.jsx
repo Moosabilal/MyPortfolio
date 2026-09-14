@@ -215,7 +215,7 @@ const HeroScroll = () => {
     const pointerEvents4 = useTransform(scrollYProgress, (val) => val >= 0.68 ? "auto" : "none");
 
     return (
-        <section id="home" ref={containerRef} className="relative w-full h-[500vh] bg-bg-primary">
+        <section id="home" ref={containerRef} className="relative w-full h-[250vh] md:h-[500vh] bg-bg-primary">
             {/* Sticky Canvas & Overlays */}
             <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
                 {/* Canvas Background */}
@@ -343,9 +343,16 @@ const HeroScroll = () => {
                         </p>
 
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3.5 mb-6 sm:mb-8 w-full">
-                            <Link to="/projects" className="btn btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold shadow-[0_5px_15px_rgba(99,102,241,0.4)] flex-1 sm:flex-initial text-center">
+                            <a 
+                                href="#projects" 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="btn btn-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-semibold shadow-[0_5px_15px_rgba(99,102,241,0.4)] flex-1 sm:flex-initial text-center"
+                            >
                                 View My Work
-                            </Link>
+                            </a>
                             <a
                                 href="https://raw.githubusercontent.com/Moosabilal/Resume-Moosa-K--A/main/Resume(Moosa-K-A).pdf"
                                 target="_blank"
@@ -354,9 +361,16 @@ const HeroScroll = () => {
                             >
                                 Resume <FaFileDownload className="text-accent-secondary" />
                             </a>
-                            <Link to="/contact" className="btn btn-outline px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 text-xs sm:text-sm font-semibold w-full sm:w-auto text-center">
+                            <a 
+                                href="#contact" 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="btn btn-outline px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 text-xs sm:text-sm font-semibold w-full sm:w-auto text-center"
+                            >
                                 Contact Me
-                            </Link>
+                            </a>
                         </div>
 
                         <div className="flex gap-6 sm:gap-8 text-xl sm:text-2xl text-text-secondary">

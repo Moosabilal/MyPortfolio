@@ -38,8 +38,8 @@ const Navbar = () => {
         { name: 'Education', path: '#education', isHash: true },
         { name: 'Skills', path: '#skills', isHash: true },
         { name: 'Certificates', path: '#certificates', isHash: true },
-        { name: 'Projects', path: '/projects', isHash: false },
-        { name: 'Contact', path: '/contact', isHash: false },
+        { name: 'Projects', path: '#projects', isHash: true },
+        { name: 'Contact', path: '#contact', isHash: true },
     ];
 
     return (

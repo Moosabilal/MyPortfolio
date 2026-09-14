@@ -29,7 +29,7 @@ const Contact = () => {
 
     return (
         <motion.div
-            className="section container pt-[150px] flex items-center min-h-[80vh]"
+            className="section container pt-20 flex items-center min-h-[80vh]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
