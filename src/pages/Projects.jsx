@@ -25,7 +25,7 @@ const Projects = () => {
             title: "SpaceVote — Real-Time Polling Application",
             desc: "A production-ready polling platform utilizing a Hybrid REST & WebSocket architecture. Implemented strict Clean Architecture, InversifyJS Dependency Injection, and SOLID principles. Features instantaneous chart synchronization, real-time typing indicators, and a secure server-side file proxy to bypass cross-origin browser restrictions.",
             tech: ["TypeScript", "Node.js", "Express", "Socket.IO", "InversifyJS", "MongoDB", "Cloudinary", "Nginx", "GitHub Actions"],
-            link: "https://polling-app.moosadev.online/",
+            link: "https://polling-app-y36u.onrender.com/",
             github: "https://github.com/Moosabilal/Polling_App.git"
         },
         {
