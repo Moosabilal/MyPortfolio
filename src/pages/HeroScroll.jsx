@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaBolt, FaLayerGroup, FaCode, FaServer, FaDatabase, FaShieldAlt, FaRocket, FaLaptopCode } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileDownload, FaBolt, FaLayerGroup, FaCode, FaServer, FaDatabase, FaShieldAlt, FaRocket, FaLaptopCode, FaInstagram } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 const HeroScroll = () => {
     const containerRef = useRef(null);
@@ -376,6 +377,8 @@ const HeroScroll = () => {
                         <div className="flex gap-6 sm:gap-8 text-xl sm:text-2xl text-text-secondary">
                             <a href="https://github.com/Moosabilal" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaGithub /></a>
                             <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaLinkedin /></a>
+                            <a href="https://www.instagram.com/moosa_k_a/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaInstagram /></a>
+                            <a href="https://leetcode.com/u/moosabilal/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><SiLeetcode /></a>
                             <a href="mailto:moosabilal75608@gmail.com" className="hover:text-accent-primary transition-all duration-300 transform hover:-translate-y-1"><FaEnvelope /></a>
                         </div>
                     </div>

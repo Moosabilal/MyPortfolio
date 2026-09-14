@@ -1,12 +1,15 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaHeart, FaInstagram } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 
 const Footer = () => {
     return (
         <footer className="bg-bg-secondary py-10 text-center border-t border-white/5 mt-auto relative z-10">
             <div className="flex justify-center gap-8 mb-8">
-                <a href="https://github.com/Moosabilal" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaGithub /></a>
-                <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaLinkedin /></a>
+                <a href="https://github.com/Moosabilal" target="_blank" rel="noopener noreferrer" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaGithub /></a>
+                <a href="https://www.linkedin.com/in/moosa-k-a-898300257/" target="_blank" rel="noopener noreferrer" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaLinkedin /></a>
+                <a href="https://www.instagram.com/moosa_k_a/" target="_blank" rel="noopener noreferrer" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaInstagram /></a>
+                <a href="https://leetcode.com/u/moosabilal/" target="_blank" rel="noopener noreferrer" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><SiLeetcode /></a>
                 <a href="mailto:moosabilal75608@gmail.com" className="text-2xl text-text-secondary hover:text-accent-primary transition-all duration-300 hover:-translate-y-1 inline-block"><FaEnvelope /></a>
             </div>
             <p className="text-text-secondary text-sm">
