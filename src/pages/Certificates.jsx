@@ -58,8 +58,21 @@ const Certificates = () => {
             };
         });
         
-        // Sort certificates by custom sortOrder (lowest first)
-        certs.sort((a, b) => a.sortOrder - b.sortOrder);
+        const categoryRank = {
+            'internships': 1,
+            'education': 2,
+            'arts': 3,
+            'sports': 4,
+            'others': 5
+        };
+        
+        // Sort certificates: First by Category (Internships -> Education...), then by custom sortOrder
+        certs.sort((a, b) => {
+            if (categoryRank[a.category] !== categoryRank[b.category]) {
+                return categoryRank[a.category] - categoryRank[b.category];
+            }
+            return a.sortOrder - b.sortOrder;
+        });
         
         setCertificates(certs);
     }, []);
